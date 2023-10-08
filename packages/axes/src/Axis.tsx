@@ -1,7 +1,6 @@
 import {
     first,
     GenericChartComponent,
-    GenericComponentRef,
     getAxisCanvas,
     getStrokeDasharrayCanvas,
     last,
@@ -75,7 +74,7 @@ export class Axis extends React.Component<AxisProps> {
         zoomCursorClassName: "",
     };
 
-    private readonly chartRef = React.createRef<GenericComponentRef>();
+    private readonly chartRef = React.createRef<GenericChartComponent>();
 
     public render() {
         const {
@@ -128,16 +127,8 @@ export class Axis extends React.Component<AxisProps> {
     };
 
     private readonly drawOnCanvas = (ctx: CanvasRenderingContext2D, moreProps: any) => {
-        const {
-            showDomain,
-            showGridLines,
-            showTickLabel,
-            showTicks,
-            transform,
-            range,
-            getScale,
-            tickLabelFill,
-        } = this.props;
+        const { showDomain, showGridLines, showTickLabel, showTicks, transform, range, getScale, tickLabelFill } =
+            this.props;
 
         ctx.save();
         ctx.translate(transform[0], transform[1]);

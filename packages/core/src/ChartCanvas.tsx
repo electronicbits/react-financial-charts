@@ -13,7 +13,7 @@ import {
 import { EventCapture } from "./EventCapture";
 import { CanvasContainer, ICanvasContexts } from "./CanvasContainer";
 import evaluator from "./utils/evaluator";
-import type { MoreProps } from "./GenericComponent";
+import type { MoreProps } from "./MoreProps";
 
 const CANDIDATES_FOR_RESET = ["seriesName"];
 
@@ -115,9 +115,8 @@ export const chartCanvasContextDefaultValue: ChartCanvasContextType<number | Dat
     xAccessor: () => 0,
     xScale: noop,
 };
-export const ChartCanvasContext = React.createContext<ChartCanvasContextType<number | Date>>(
-    chartCanvasContextDefaultValue,
-);
+export const ChartCanvasContext =
+    React.createContext<ChartCanvasContextType<number | Date>>(chartCanvasContextDefaultValue);
 
 const getDimensions = <TXAxis extends number | Date>(props: ChartCanvasProps<TXAxis>) => {
     const { margin, height, width } = props;
